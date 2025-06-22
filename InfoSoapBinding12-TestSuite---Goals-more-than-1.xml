@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="b04fcf13-35ef-4378-a439-1d8aacd7be8a" name="InfoSoapBinding12 TestSuite - Goals > 1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="1f33657d-0851-454a-ace3-966da3a90ac0" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="PlayersWithGoalsRanked TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="43fedddf-4d42-4ceb-bc19-017b4386fd13" name="PlayersWithGoalsRanked"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>InfoSoapBinding12</con:interface><con:operation>PlayersWithGoalsRanked</con:operation><con:request name="PlayersWithGoalsRanked" id="4c7f0cfe-005b-4aba-a203-bcc730ae7380"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://ws.footballpool.dataaccess.eu/info.wso</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:foot="https://footballpool.dataaccess.eu">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <foot:PlayersWithGoalsRanked/>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="XQuery Match" id="15153f1c-383c-4e7e-836f-027b31ecbb2a" name="XQuery Match"><con:configuration><path><![CDATA[declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+declare namespace m='https://footballpool.dataaccess.eu';
+<MyResult>
+{
+    for $player in //m:PlayersWithGoalsRankedResult/m:tTeamPlayerGoalsRankInfo[m:iGoals > 1]
+   order by xs:integer(data($player/m:iGoals)) descending
+    return <m:tTeamPlayerGoalsRankInfo>
+               <m:sName>{data($player/m:sName)}</m:sName>
+               <m:iGoals>{data($player/m:iGoals)}</m:iGoals>
+           </m:tTeamPlayerGoalsRankInfo>
+}
+</MyResult>]]></path><content><![CDATA[<MyResult>
+  <m:tTeamPlayerGoalsRankInfo xmlns:m="https://footballpool.dataaccess.eu">
+    <m:sName>Cody Gakpo</m:sName>
+    <m:iGoals>3</m:iGoals>
+  </m:tTeamPlayerGoalsRankInfo>
+  <m:tTeamPlayerGoalsRankInfo xmlns:m="https://footballpool.dataaccess.eu">
+    <m:sName>Dani Olmo</m:sName>
+    <m:iGoals>3</m:iGoals>
+  </m:tTeamPlayerGoalsRankInfo>
+  <m:tTeamPlayerGoalsRankInfo xmlns:m="https://footballpool.dataaccess.eu">
+    <m:sName>Georges Mikautadze</m:sName>
+    <m:iGoals>3</m:iGoals>
+  </m:tTeamPlayerGoalsRankInfo>
+  <m:tTeamPlayerGoalsRankInfo xmlns:m="https://footballpool.dataaccess.eu">
+    <m:sName>Harry Kane</m:sName>
+    <m:iGoals>3</m:iGoals>
+  </m:tTeamPlayerGoalsRankInfo>
+  <m:tTeamPlayerGoalsRankInfo xmlns:m="https://footballpool.dataaccess.eu">
+    <m:sName>Ivan Schranz</m:sName>
+    <m:iGoals>3</m:iGoals>
+  </m:tTeamPlayerGoalsRankInfo>
+  <m:tTeamPlayerGoalsRankInfo xmlns:m="https://footballpool.dataaccess.eu">
+    <m:sName>Jamal Musiala</m:sName>
+    <m:iGoals>3</m:iGoals>
+  </m:tTeamPlayerGoalsRankInfo>
+  <m:tTeamPlayerGoalsRankInfo xmlns:m="https://footballpool.dataaccess.eu">
+    <m:sName>Breel Embolo</m:sName>
+    <m:iGoals>2</m:iGoals>
+  </m:tTeamPlayerGoalsRankInfo>
+  <m:tTeamPlayerGoalsRankInfo xmlns:m="https://footballpool.dataaccess.eu">
+    <m:sName>Donyell Malen</m:sName>
+    <m:iGoals>2</m:iGoals>
+  </m:tTeamPlayerGoalsRankInfo>
+  <m:tTeamPlayerGoalsRankInfo xmlns:m="https://footballpool.dataaccess.eu">
+    <m:sName>Fabián Ruiz</m:sName>
+    <m:iGoals>2</m:iGoals>
+  </m:tTeamPlayerGoalsRankInfo>
+  <m:tTeamPlayerGoalsRankInfo xmlns:m="https://footballpool.dataaccess.eu">
+    <m:sName>Florian Wirtz</m:sName>
+    <m:iGoals>2</m:iGoals>
+  </m:tTeamPlayerGoalsRankInfo>
+  <m:tTeamPlayerGoalsRankInfo xmlns:m="https://footballpool.dataaccess.eu">
+    <m:sName>Jude Bellingham</m:sName>
+    <m:iGoals>2</m:iGoals>
+  </m:tTeamPlayerGoalsRankInfo>
+  <m:tTeamPlayerGoalsRankInfo xmlns:m="https://footballpool.dataaccess.eu">
+    <m:sName>Kai Havertz</m:sName>
+    <m:iGoals>2</m:iGoals>
+  </m:tTeamPlayerGoalsRankInfo>
+  <m:tTeamPlayerGoalsRankInfo xmlns:m="https://footballpool.dataaccess.eu">
+    <m:sName>Merih Demiral</m:sName>
+    <m:iGoals>2</m:iGoals>
+  </m:tTeamPlayerGoalsRankInfo>
+  <m:tTeamPlayerGoalsRankInfo xmlns:m="https://footballpool.dataaccess.eu">
+    <m:sName>Niclas Füllkrug</m:sName>
+    <m:iGoals>2</m:iGoals>
+  </m:tTeamPlayerGoalsRankInfo>
+  <m:tTeamPlayerGoalsRankInfo xmlns:m="https://footballpool.dataaccess.eu">
+    <m:sName>Nico Williams</m:sName>
+    <m:iGoals>2</m:iGoals>
+  </m:tTeamPlayerGoalsRankInfo>
+  <m:tTeamPlayerGoalsRankInfo xmlns:m="https://footballpool.dataaccess.eu">
+    <m:sName>Răzvan Marin</m:sName>
+    <m:iGoals>2</m:iGoals>
+  </m:tTeamPlayerGoalsRankInfo>
+</MyResult>]]></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Invalid HTTP Status Codes" id="e22d8a97-e433-4943-ba2d-20db6526709e" name="Invalid HTTP Status Codes"><con:configuration><codes>301, 401, 500, 501</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="https://footballpool.dataaccess.eu/InfoSoapType/PlayersWithGoalsRankedRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite>
